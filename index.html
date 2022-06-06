@@ -8,12 +8,34 @@
     <script src="https://unpkg.com/vue@3"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   </head>
+  <style>
+    .login {
+            color: white;
+            height: 38px;
+            width: 300px;
+            background-color: #2b669a;
+        }
+    .container{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+  </style>
   <body>
-    <div id="app">
-      帳號 : <input type="text" v-model="account" />
-      <br/>
-      密碼 : <input type="text" v-model="password" />
-      <button @click="btn">登入</button>
+    <div class="container">
+      <div id="app">
+        <h2>請登入</h2>
+        帳號(Email) : 
+        <br>
+        <input type="text" v-model="account" placeholder="Email"/>
+        <br/>
+        密碼(Password) :
+        <br>
+        <input type="text" v-model="password" placeholder="Password"/>
+        <br><input type="checkbox">記住密碼<br><br>
+        <button @click="login" class="login">登入
+      </div>
     </div>
 
     <script>
@@ -28,7 +50,7 @@
           };
         },
         methods: {
-          async btn() {
+          async login() {
             // 判斷
             if (
               !this.account.replace(/\s+/g, '') ||
